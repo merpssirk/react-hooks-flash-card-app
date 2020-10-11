@@ -1,38 +1,161 @@
-.App {
-  text-align: center;
+body {
+  background-color: #c8d0d2;
+  margin: 0;
+  font-family: sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 3rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Form Section Coding */
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: white;
+  padding: 0 1.5rem;
+  box-shadow: 0 0 5px 2px rgba(8, 31, 109, 0.3);
+  margin-bottom: 50px;
+  
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.form-group {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin: 1rem;
+  
+}
+
+.form-group > label {
+  color: #777;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input {
+  font-size: 1rem;
+  padding: .5rem;
+  color: purple;
+  border-radius: .25rem;
+  border: 0.25px solid #777;
+  border: none;
+  background: rgb(223, 219, 219);
+  
+}
+
+.form-group select {
+  font-size: 1rem;
+  padding: .5rem;
+  color: purple;
+  border-radius: .25rem;
+  border: 0.25px solid #777;
+  border: none;
+}
+.btn {
+  background-color: hsl(200, 100%, 50%);
   color: white;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+.btn:hover {
+  background-color: hsl(200, 100%, 30%);
 }
 
-.App-link {
-  color: #61dafb;
+/* Form Section Coding  ended*/
+
+.card-grid {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+  gap: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
+  background-color: white;
+  transform-style: preserve-3d;
+  height: 350px;
+  width: 600px;
+  cursor: pointer;
+  transform: perspective(1000px) rotateY(var(--rotate-y, 0))
+    translateY(var(--translate-y, 0));
+  transition: 150ms;
+}
+.card:hover {
+  --translate-y: -2px;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
+}
+.card.flipCard {
+  --rotate-y: 180deg;
+}
+.card .front {
+  left: 0;
+  font-size: 2rem;
+}
+.card .front,
+.card .back {
+  position: absolute;
+  padding: 1rem;
+  backface-visibility: hidden;
+}
+.card .back {
+  transform: rotateY(180deg);
+  font-size: 2rem;
+  color: darkgreen;
+}
+
+.flashcard-options {
+  margin-top: 0.5rem;
+}
+
+.flashcard-option {
+  margin-top: 0.25rem;
+  color: #555;
+  font-size: 1.5rem;
+  padding: 0.25rem;
+}
+.flashcard-option:first-child {
+  margin-top: 0;
+}
+
+@media only screen and (max-width: 1311px) {
+  body {
+    background-color: lightblue;
   }
-  to {
-    transform: rotate(360deg);
+  .card {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 526px) {
+  body {
+    background-color: rgb(189, 189, 221);
+  }
+  .card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  }
+  .card {
+    margin: 0 auto;
+    height: 350px;
+    width: 360px;
+  }
+  .card .front {
+    font-size: 1.5rem;
+  }
+  .flashcard-option {
+    font-size: 1rem;
   }
 }
