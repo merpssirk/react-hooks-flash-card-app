@@ -1,5 +1,4 @@
-# Click following link to see website
- https://merpssirk.github.io/react-hooks-flash-card-app/
+## HERE IS THE PROJECT LINK: https://merpssirk.github.io/react-hooks-flash-card-app/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
